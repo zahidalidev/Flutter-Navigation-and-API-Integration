@@ -25,7 +25,7 @@ class CodeCard extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.only(top: 65.0, left: 30, right: 30),
                 child: TextField(
-                  obscureText: true,
+                  // obscureText: true,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Attendance Code',
