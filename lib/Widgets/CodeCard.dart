@@ -6,21 +6,31 @@ class CodeCard extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Container(
-          margin: const EdgeInsets.all(15.0),
+          width: double.infinity,
+          margin: const EdgeInsets.only(top: 165.0),
           // color: Colors.blue,
-          //
-          child: Row(
+          child: Column(
             children: [
-              Expanded(
-                child: Text('Peter', textAlign: TextAlign.center),
+              Container(
+                child: const Text(
+                  'MARK ATTEDANCE',
+                  textAlign: TextAlign.end,
+                  style: TextStyle(
+                    fontSize: 35,
+                    color: Colors.teal,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
               ),
-              Expanded(
-                child: Text('John', textAlign: TextAlign.center),
-              ),
-              Expanded(
-                child: FittedBox(
-                  fit: BoxFit.contain, // otherwise the logo will be tiny
-                  child: const FlutterLogo(),
+              Container(
+                margin: const EdgeInsets.only(top: 65.0, left: 30, right: 30),
+                child: TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Attendance Code',
+                    hintText: 'Enter Code',
+                  ),
                 ),
               ),
             ],
