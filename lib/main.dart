@@ -27,7 +27,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Face Detectio System'),
+          title: Text('Prime Number Detector'),
           actions: [
             IconButton(
                 icon: const Icon(

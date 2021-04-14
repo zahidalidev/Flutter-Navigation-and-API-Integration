@@ -12,9 +12,20 @@ class PrimeDetect extends State<PrimeDetectState> {
 
   //Funtion to check prime number
   void detectPrime() {
+    print(isPrime);
+    print(number);
+
+    if (number == null) {
+      setState(() {
+        isPrime = "Not detected";
+      });
+      return;
+    }
+
     if (number <= 1) {
       setState(() {
         isPrime = "Composite";
+        number = null;
       });
       return;
     }
@@ -22,16 +33,17 @@ class PrimeDetect extends State<PrimeDetectState> {
       if (number % i == 0) {
         setState(() {
           isPrime = "Composite";
+          number = null;
         });
-        print(isPrime);
 
         return;
       }
     }
     setState(() {
       isPrime = "Prime";
+      number = null;
     });
-    print(isPrime);
+
     return;
   }
 
@@ -41,47 +53,65 @@ class PrimeDetect extends State<PrimeDetectState> {
       padding: EdgeInsets.all(30),
       alignment: Alignment.center,
       // width: double.infinity,
-      margin: const EdgeInsets.only(top: 70.0),
-      // color: Colors.blue,
-      // height: 110,
-      // width: 200,
+      color: Colors.white,
+      // margin: const EdgeInsets.only(top: 50.0),
       child: Row(
         children: <Widget>[
           Expanded(
             child: Container(
               child: Column(
                 children: [
-                  Text(
-                    'Prime Number Detector',
-                    textAlign: TextAlign.end,
-                    style: TextStyle(
-                      fontSize: 35,
-                      color: Colors.teal,
-                      fontWeight: FontWeight.w400,
+                  Image.network(
+                    'https://banner2.cleanpng.com/20180326/xae/kisspng-numbers-game-mathematics-numbers-game-prime-number-numbers-5ab8b109e77d78.5221715215220533859482.jpg',
+                    height: 250,
+                    width: 250,
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 15.0),
+                    child: Text(
+                      'Prime Number Detector',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontSize: 35,
+                        color: Colors.teal,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
-                  TextField(
-                    keyboardType: TextInputType.number,
-                    inputFormatters: <TextInputFormatter>[
-                      FilteringTextInputFormatter.digitsOnly
-                    ],
-                    style: TextStyle(),
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Enter Number',
-                      hintText: 'Enter Number',
+                  Container(
+                    margin: const EdgeInsets.only(top: 75.0),
+                    child: TextField(
+                      keyboardType: TextInputType.number,
+                      inputFormatters: <TextInputFormatter>[
+                        FilteringTextInputFormatter.digitsOnly
+                      ],
+                      style: TextStyle(),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Enter Number',
+                        hintText: 'Enter Number',
+                      ),
+                      onChanged: (String value) async {
+                        setState(() {
+                          number = int.parse(value);
+                          isPrime = "Not detected";
+                        });
+                      },
                     ),
-                    onChanged: (String value) async {
-                      setState(() {
-                        number = int.parse(value);
-                      });
-                    },
                   ),
-                  ElevatedButton(
-                    child: Text("Detect"),
-                    onPressed: () {
-                      detectPrime();
-                    },
+                  Container(
+                    margin: const EdgeInsets.only(top: 25.0, bottom: 30),
+                    child: ElevatedButton(
+                      child: Text("Detect"),
+                      style: ElevatedButton.styleFrom(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                        textStyle: TextStyle(fontSize: 20),
+                      ),
+                      onPressed: () {
+                        detectPrime();
+                      },
+                    ),
                   ),
                   Row(
                     children: [
@@ -89,7 +119,7 @@ class PrimeDetect extends State<PrimeDetectState> {
                         'Detected Number is ',
                         textAlign: TextAlign.start,
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 25,
                           color: Colors.teal,
                           fontWeight: FontWeight.w400,
                         ),
@@ -97,7 +127,7 @@ class PrimeDetect extends State<PrimeDetectState> {
                       Text(
                         isPrime,
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 25,
                           color: Colors.teal,
                           fontWeight: FontWeight.w600,
                         ),
