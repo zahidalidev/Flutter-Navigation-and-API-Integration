@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Widgets/CodeCard.dart';
+import 'package:flutter_application_1/Widgets/PrimeDetect.dart';
 
 void main() => runApp(MyApp());
 
@@ -41,6 +41,6 @@ class MyHomePage extends StatelessWidget {
                 })
           ],
         ),
-        body: CodeCard());
+        body: PrimeDetectState());
   }
 }
