@@ -112,13 +112,16 @@ class PrimeDetect extends State<PrimeDetectState> {
                     ),
                     Row(
                       children: [
-                        Text(
-                          'Detected Number is ',
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            fontSize: 25,
-                            color: Colors.teal,
-                            fontWeight: FontWeight.w400,
+                        Padding(
+                          padding: EdgeInsets.only(right: 10.0),
+                          child: Text(
+                            'Detected Number is ',
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                              fontSize: 25,
+                              color: Colors.teal,
+                              fontWeight: FontWeight.w400,
+                            ),
                           ),
                         ),
                         Text(
