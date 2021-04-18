@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+// Zahid Ali Regestration Number 2018-CS-136
+// I have used all required Widgets
+
 class PrimeDetectState extends StatefulWidget {
   @override
   PrimeDetect createState() => PrimeDetect();
@@ -49,9 +52,7 @@ class PrimeDetect extends State<PrimeDetectState> {
       child: Container(
         padding: EdgeInsets.only(left: 30, right: 30, top: 80),
         alignment: Alignment.center,
-        // width: double.infinity,
         color: Colors.white,
-        // margin: const EdgeInsets.only(top: 50.0),
         child: Row(
           children: <Widget>[
             Expanded(

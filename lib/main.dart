@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Widgets/PrimeDetect.dart';
 
+// Zahid Ali Regestration Number 2018-CS-136
+// I have used all required Widgets
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -36,11 +39,12 @@ class MyHomePage extends StatelessWidget {
                 ),
                 onPressed: () {
                   ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Button is clicked')));
+                      const SnackBar(content: Text('Icon is clicked')));
                   print("clicked");
                 })
           ],
         ),
+        // imported from PrimeDetect
         body: PrimeDetectState());
   }
 }
