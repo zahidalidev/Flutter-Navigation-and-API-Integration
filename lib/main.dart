@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Widgets/Drawer.dart';
 import 'package:flutter_application_1/Widgets/PrimeDetect.dart';
+import 'package:flutter_application_1/Widgets/Todays.dart';
 
 // Zahid Ali Regestration Number 2018-CS-136
-// I have used all required Widgets
 
 void main() => runApp(MyApp());
 
@@ -18,6 +18,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.teal,
       ),
       home: MyHomePage(title: 'Home page'),
+      // initialRoute: '/',
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        // '/': (context) => PrimeDetectState(),
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/todays': (context) => Todays(),
+      },
     );
   }
 }

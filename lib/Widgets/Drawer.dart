@@ -1,48 +1,47 @@
 import 'package:flutter/material.dart';
 
 // Zahid Ali Regestration Number 2018-CS-136
-// I have used all required Widgets
 var menus = [
   {
     'name': 'Todays',
     'icon': Icons.email_rounded,
-    'route': '/',
+    'route': '/todays',
     'active': false,
   },
   {
     'name': 'Products',
     'icon': Icons.photo_rounded,
-    'route': '/shopping',
+    'route': '/todays',
     'active': false,
   },
   {
     'name': 'Direct Materrials',
     'icon': Icons.people,
-    'route': '/booking',
+    'route': '/todays',
     'active': false,
   },
   {
     'name': 'Direct Labour',
     'icon': Icons.local_offer_sharp,
-    'route': '/media',
+    'route': '/todays',
     'active': false,
   },
   {
     'name': 'Overheads',
     'icon': Icons.local_offer_sharp,
-    'route': '/learning',
+    'route': '/todays',
     'active': false,
   },
   {
     'name': 'Customers',
     'icon': Icons.people,
-    'route': '/news',
+    'route': '/todays',
     'active': false,
   },
   {
     'name': 'Suppliers',
     'icon': Icons.people,
-    'route': '/news',
+    'route': '/todays',
     'active': false,
   },
 ];
@@ -50,25 +49,25 @@ var menus2 = [
   {
     'name': 'Consultant',
     'icon': Icons.people,
-    'route': '/',
+    'route': '/todays',
     'active': false,
   },
   {
     'name': 'Help',
     'icon': Icons.help,
-    'route': '/shopping',
+    'route': '/todays',
     'active': false,
   },
   {
     'name': 'Settings',
     'icon': Icons.settings,
-    'route': '/booking',
+    'route': '/todays',
     'active': false,
   },
   {
     'name': 'logout',
     'icon': Icons.logout,
-    'route': '/media',
+    'route': '/',
     'active': false,
   }
 ];
@@ -85,7 +84,6 @@ class _DrawerWidget extends State<DrawerWidget> {
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
-        // Important: Remove any padding from the ListView.
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
@@ -145,6 +143,10 @@ class _DrawerWidget extends State<DrawerWidget> {
                 shrinkWrap: true,
                 itemBuilder: (BuildContext context, int index) {
                   return GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(
+                          context, widget.menuList[index]['route']);
+                    },
                     child: Container(
                       child: Padding(
                         padding:
@@ -192,6 +194,10 @@ class _DrawerWidget extends State<DrawerWidget> {
                 shrinkWrap: true,
                 itemBuilder: (BuildContext context, int index) {
                   return GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(
+                          context, widget.menuList2[index]['route']);
+                    },
                     child: Container(
                       child: Padding(
                         padding:
@@ -199,14 +205,14 @@ class _DrawerWidget extends State<DrawerWidget> {
                         child: Row(
                           children: [
                             Icon(
-                              widget.menuList[index]['icon'],
+                              widget.menuList2[index]['icon'],
                               size: 24,
                               color: Colors.grey,
                             ),
                             Container(
                               margin: EdgeInsets.only(left: 20),
                               child: Text(
-                                widget.menuList[index]['name'],
+                                widget.menuList2[index]['name'],
                                 style: TextStyle(
                                   fontSize: 18,
                                   color: Colors.grey,
