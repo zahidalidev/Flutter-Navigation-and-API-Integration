@@ -59,11 +59,8 @@ class PrimeDetect extends State<PrimeDetectState> {
               child: Container(
                 child: Column(
                   children: [
-                    Image.network(
-                      'https://banner2.cleanpng.com/20180326/xae/kisspng-numbers-game-mathematics-numbers-game-prime-number-numbers-5ab8b109e77d78.5221715215220533859482.jpg',
-                      height: 190,
-                      width: 250,
-                    ),
+                    Image.asset("lib/assets/numbers.jpg",
+                        height: 190, width: 250),
                     Container(
                       margin: const EdgeInsets.only(top: 15.0),
                       child: Text(
