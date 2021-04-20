@@ -142,37 +142,33 @@ class _DrawerWidget extends State<DrawerWidget> {
                 itemCount: widget.menuList.length,
                 shrinkWrap: true,
                 itemBuilder: (BuildContext context, int index) {
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(
-                          context, widget.menuList[index]['route']);
-                    },
-                    child: Container(
-                      child: Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                        child: Row(
-                          children: [
-                            Icon(
-                              widget.menuList[index]['icon'],
-                              size: 24,
-                              color: Colors.grey,
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(left: 20),
-                              child: Text(
-                                widget.menuList[index]['name'],
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ],
+                  return Container(
+                    child: ListTile(
+                      dense: true,
+                      contentPadding:
+                          EdgeInsets.only(left: 10.0, right: 0.0, top: 2),
+                      leading: Padding(
+                        padding: EdgeInsets.only(left: 10),
+                        child: Icon(
+                          widget.menuList[index]['icon'],
+                          size: 24,
+                          color: Colors.grey,
                         ),
                       ),
+                      title: Container(
+                        child: Text(
+                          widget.menuList[index]['name'],
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                      onTap: () => {
+                        Navigator.pushNamed(
+                            context, widget.menuList[index]['route'])
+                      },
                     ),
                   );
                 },
@@ -193,37 +189,33 @@ class _DrawerWidget extends State<DrawerWidget> {
                 itemCount: widget.menuList2.length,
                 shrinkWrap: true,
                 itemBuilder: (BuildContext context, int index) {
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(
-                          context, widget.menuList2[index]['route']);
-                    },
-                    child: Container(
-                      child: Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                        child: Row(
-                          children: [
-                            Icon(
-                              widget.menuList2[index]['icon'],
-                              size: 24,
-                              color: Colors.grey,
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(left: 20),
-                              child: Text(
-                                widget.menuList2[index]['name'],
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ],
+                  return Container(
+                    child: ListTile(
+                      dense: true,
+                      contentPadding:
+                          EdgeInsets.only(left: 10.0, right: 0.0, top: 2),
+                      leading: Padding(
+                        padding: EdgeInsets.only(left: 10),
+                        child: Icon(
+                          widget.menuList2[index]['icon'],
+                          size: 24,
+                          color: Colors.grey,
                         ),
                       ),
+                      title: Container(
+                        child: Text(
+                          widget.menuList2[index]['name'],
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                      onTap: () => {
+                        Navigator.pushNamed(
+                            context, widget.menuList2[index]['route'])
+                      },
                     ),
                   );
                 },
