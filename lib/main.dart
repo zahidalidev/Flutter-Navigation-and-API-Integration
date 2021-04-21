@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_application_1/Widgets/Drawer.dart';
+import 'package:flutter_application_1/Widgets/MyAppBar.dart';
 import 'package:flutter_application_1/Widgets/PrimeDetect.dart';
 import 'package:flutter_application_1/Widgets/Todays.dart';
 
@@ -37,21 +39,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Prime Number Detector'),
-          actions: [
-            IconButton(
-                icon: const Icon(
-                  Icons.account_circle_outlined,
-                  size: 30,
-                ),
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Icon is clicked')));
-                  print("clicked");
-                })
-          ],
-        ),
+        appBar: MyAppBar(),
         drawer: Container(
           width: MediaQuery.of(context).size.width * 0.65,
           child: DrawerWidget(),
