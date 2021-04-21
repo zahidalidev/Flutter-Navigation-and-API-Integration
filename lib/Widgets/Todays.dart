@@ -85,7 +85,7 @@ class _Todays extends State<Todays> {
           itemCount: items.length,
           itemBuilder: (context, index) {
             return Dismissible(
-              background: Container(color: Colors.red),
+              background: Container(color: Colors.red[300]),
               key: Key(items[index]['title']),
               onDismissed: (direction) {
                 dellItem(items[index], index);
