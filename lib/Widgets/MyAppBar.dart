@@ -7,7 +7,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text('Prime Number Detector'),
+      title: Text('Verido'),
       actions: [
         IconButton(
             icon: const Icon(
