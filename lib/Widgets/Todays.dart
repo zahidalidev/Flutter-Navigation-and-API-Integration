@@ -15,31 +15,45 @@ class _Todays extends State<Todays> {
   List items = [
     {
       'id': 1,
-      'title': 'Card 1 Tiyle, Lyrics by Sidney Stein',
+      'title': 'Card 1 Title',
+      'description':
+          "Greyhound divisively hello coldly wonderfully marginally far upon excluding."
     },
     {
       'id': 2,
-      'title': 'Card 2 Tiyle, Lyrics by Sidney Stein',
+      'title': 'Card 2 Title',
+      'description':
+          "Greyhound divisively hello coldly wonderfully marginally far upon excluding."
     },
     {
       'id': 3,
-      'title': 'Card 3 Tiyle, Lyrics by Sidney Stein',
+      'title': 'Card 3 Title',
+      'description':
+          "Greyhound divisively hello coldly wonderfully marginally far upon excluding."
     },
     {
       'id': 4,
-      'title': 'Card 4 Tiyle, Lyrics by Sidney Stein',
+      'title': 'Card 4 Title',
+      'description':
+          "Greyhound divisively hello coldly wonderfully marginally far upon excluding."
     },
     {
       'id': 5,
-      'title': 'Card 5 Tiyle, Lyrics by Sidney Stein',
+      'title': 'Card 5 Title',
+      'description':
+          "Greyhound divisively hello coldly wonderfully marginally far upon excluding."
     },
     {
       'id': 6,
-      'title': 'Card 6 Tiyle, Lyrics by Sidney Stein',
+      'title': 'Card 6 Title',
+      'description':
+          "Greyhound divisively hello coldly wonderfully marginally far upon excluding."
     },
     {
       'id': 7,
-      'title': 'Card 7 Tiyle, Lyrics by Sidney Stein',
+      'title': 'Card 7 Title',
+      'description':
+          "Greyhound divisively hello coldly wonderfully marginally far upon excluding."
     },
   ];
 
@@ -77,6 +91,7 @@ class _Todays extends State<Todays> {
                 dellItem(items[index], index);
               },
               child: Card(
+                clipBehavior: Clip.antiAlias,
                 margin:
                     EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 10),
                 elevation: 3,
@@ -84,36 +99,57 @@ class _Todays extends State<Todays> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.all(10),
-                      child: Image.asset("lib/assets/smash3.jpg", height: 160),
+                      padding: EdgeInsets.only(bottom: 10),
+                      child: Image.asset("lib/assets/smash3.jpg"),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Padding(
-                          padding:
-                              EdgeInsets.only(left: 20, bottom: 18, top: 2),
-                          child: Text(
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(top: 10, left: 16, right: 16),
+                      child: Text(
+                        items[index]['description'],
+                        style: TextStyle(
+                            color: Colors.black.withOpacity(0.6), fontSize: 15),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          left: 16, right: 10, bottom: 10),
+                      child: ButtonBar(
+                        alignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
                             items[index]['title'],
-                            style: TextStyle(fontSize: 15),
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        Padding(
-                          padding:
-                              EdgeInsets.only(right: 20, bottom: 18, top: 2),
-                          child: GestureDetector(
-                            child: Icon(
-                              Icons.delete_forever,
-                              color: Colors.red,
-                              size: 25,
+                            style: TextStyle(
+                              color: Colors.teal,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
                             ),
-                            // onTap: () {
-                            //   dellItem(items[index]);
-                            // },
                           ),
-                        ),
-                      ],
+                          Row(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(right: 13),
+                                child: GestureDetector(
+                                  child: Icon(
+                                    Icons.favorite,
+                                    color: Colors.grey,
+                                    size: 25,
+                                  ),
+                                  onTap: () => null,
+                                ),
+                              ),
+                              GestureDetector(
+                                child: Icon(
+                                  Icons.share,
+                                  color: Colors.grey,
+                                  size: 25,
+                                ),
+                                onTap: () => null,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
