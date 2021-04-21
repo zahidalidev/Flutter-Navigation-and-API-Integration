@@ -126,16 +126,16 @@ Future<ConfirmAction> _asyncConfirmDialog(BuildContext context) async {
     barrierDismissible: false, // user must tap button for close dialog!
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text('Delete This Contact?'),
-        content: const Text('This will delete the contact from your device.'),
+        title: Text('Delete This Card?'),
+        content: const Text('This will delete the Card from Todays list.'),
         actions: <Widget>[
-          FlatButton(
+          TextButton(
             child: const Text('Cancel'),
             onPressed: () {
               Navigator.of(context).pop(ConfirmAction.Cancel);
             },
           ),
-          FlatButton(
+          TextButton(
             child: const Text('Delete'),
             onPressed: () {
               Navigator.of(context).pop(ConfirmAction.Accept);
