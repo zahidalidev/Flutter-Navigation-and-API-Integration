@@ -43,11 +43,15 @@ class _Todays extends State<Todays> {
     },
   ];
 
-  void dellItem(item) async {
+  void dellItem(item, index) async {
+    setState(() {
+      items.remove(item);
+    });
+
     final ConfirmAction action = await _asyncConfirmDialog(context);
-    if (action == ConfirmAction.Accept) {
+    if (action != ConfirmAction.Accept) {
       setState(() {
-        items.remove(item);
+        items.insert(index, item);
       });
     }
   }
@@ -66,54 +70,57 @@ class _Todays extends State<Todays> {
         child: ListView.builder(
           itemCount: items.length,
           itemBuilder: (context, index) {
-            return Card(
-              margin: EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 10),
-              elevation: 3,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Image.asset("lib/assets/smash3.jpg", height: 160),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.only(left: 20, bottom: 18, top: 2),
-                        child: Text(
-                          items[index]['title'],
-                          style: TextStyle(fontSize: 15),
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      Padding(
-                        padding: EdgeInsets.only(right: 20, bottom: 18, top: 2),
-                        child: GestureDetector(
-                          child: Icon(
-                            Icons.delete_forever,
-                            color: Colors.red,
-                            size: 25,
+            return Dismissible(
+              background: Container(color: Colors.red),
+              key: Key(items[index]['title']),
+              onDismissed: (direction) {
+                dellItem(items[index], index);
+              },
+              child: Card(
+                margin:
+                    EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 10),
+                elevation: 3,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Image.asset("lib/assets/smash3.jpg", height: 160),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Padding(
+                          padding:
+                              EdgeInsets.only(left: 20, bottom: 18, top: 2),
+                          child: Text(
+                            items[index]['title'],
+                            style: TextStyle(fontSize: 15),
                           ),
-                          onTap: () {
-                            dellItem(items[index]);
-                          },
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                        const SizedBox(width: 8),
+                        Padding(
+                          padding:
+                              EdgeInsets.only(right: 20, bottom: 18, top: 2),
+                          child: GestureDetector(
+                            child: Icon(
+                              Icons.delete_forever,
+                              color: Colors.red,
+                              size: 25,
+                            ),
+                            // onTap: () {
+                            //   dellItem(items[index]);
+                            // },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             );
           },
         ),
-
-        // ListView.builder(
-        //   itemCount: items.length,
-        // itemBuilder: (context, index) {
-        //   return Text(items[index]['title']);
-        // },
-        // ),
       ),
     );
   }
@@ -146,4 +153,3 @@ Future<ConfirmAction> _asyncConfirmDialog(BuildContext context) async {
     },
   );
 }
-// ALertDialog , Icon,  Image, Card
