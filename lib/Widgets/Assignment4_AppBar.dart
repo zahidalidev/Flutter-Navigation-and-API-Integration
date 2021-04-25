@@ -7,7 +7,7 @@ class Assignment4AppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      automaticallyImplyLeading: false,
+      automaticallyImplyLeading: false, //hide drawer icon
       leading: new Container(
         child: Icon(Icons.close),
       ),
