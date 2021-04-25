@@ -4,14 +4,14 @@ import 'package:flutter_application_1/Widgets/Drawer.dart';
 
 // Zahid Ali Regestration Number 2018-CS-136
 
-class Todays extends StatefulWidget {
-  Todays({Key key}) : super(key: key);
+class Assignment3 extends StatefulWidget {
+  Assignment3({Key key}) : super(key: key);
 
   @override
-  _Todays createState() => _Todays();
+  _Assignment3 createState() => _Assignment3();
 }
 
-class _Todays extends State<Todays> {
+class _Assignment3 extends State<Assignment3> {
   List items = [
     {
       'id': 1,

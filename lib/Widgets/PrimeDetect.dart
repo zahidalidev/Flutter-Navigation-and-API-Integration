@@ -85,7 +85,7 @@ class PrimeDetect extends State<PrimeDetectState> {
                           labelText: 'Enter Number',
                           hintText: 'Enter Number',
                         ),
-                        onChanged: (String value) async {
+                        onChanged: (String value) {
                           setState(() {
                             isPrime = "Not detected";
                             number = int.parse(value);

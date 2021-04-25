@@ -3,45 +3,45 @@ import 'package:flutter/material.dart';
 // Zahid Ali Regestration Number 2018-CS-136
 var menus = [
   {
-    'name': 'Todays',
+    'name': 'Assignment3',
     'icon': Icons.email_rounded,
-    'route': '/todays',
+    'route': '/Assignment3',
     'active': false,
   },
   {
-    'name': 'Products',
+    'name': 'Assignment4',
     'icon': Icons.photo_rounded,
-    'route': '/todays',
+    'route': '/Assignment4',
     'active': false,
   },
   {
     'name': 'Direct Materrials',
     'icon': Icons.people,
-    'route': '/todays',
+    'route': '/Assignment3',
     'active': false,
   },
   {
     'name': 'Direct Labour',
     'icon': Icons.local_offer_sharp,
-    'route': '/todays',
+    'route': '/Assignment3',
     'active': false,
   },
   {
     'name': 'Overheads',
     'icon': Icons.local_offer_sharp,
-    'route': '/todays',
+    'route': '/Assignment3',
     'active': false,
   },
   {
     'name': 'Customers',
     'icon': Icons.people,
-    'route': '/todays',
+    'route': '/Assignment3',
     'active': false,
   },
   {
     'name': 'Suppliers',
     'icon': Icons.people,
-    'route': '/todays',
+    'route': '/Assignment3',
     'active': false,
   },
 ];
@@ -49,19 +49,19 @@ var menus2 = [
   {
     'name': 'Consultant',
     'icon': Icons.people,
-    'route': '/todays',
+    'route': '/Assignment3',
     'active': false,
   },
   {
     'name': 'Help',
     'icon': Icons.help,
-    'route': '/todays',
+    'route': '/Assignment3',
     'active': false,
   },
   {
     'name': 'Settings',
     'icon': Icons.settings,
-    'route': '/todays',
+    'route': '/Assignment3',
     'active': false,
   },
   {
