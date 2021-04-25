@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Assignment4AppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
@@ -6,10 +7,21 @@ class Assignment4AppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    // for responsive font
+    double defaultScreenWidth = 400.0;
+    double defaultScreenHeight = 810.0;
+    ScreenUtil.instance = ScreenUtil(
+      width: defaultScreenWidth,
+      height: defaultScreenHeight,
+      allowFontScaling: true,
+    )..init(context);
+
     return AppBar(
       automaticallyImplyLeading: false, //hide drawer icon
       leading: new Container(
-        child: Icon(Icons.close),
+        child: Icon(
+          Icons.close,
+        ),
       ),
       title: Text('Sort & Filter'),
       actions: [
