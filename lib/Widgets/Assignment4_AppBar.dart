@@ -23,7 +23,7 @@ class Assignment4AppBar extends StatelessWidget implements PreferredSizeWidget {
           Icons.close,
           color: Colors.white,
         ),
-        onPressed: () => null,
+        onPressed: () => {Navigator.pushNamed(context, '/')},
       ),
       title: Text('Sort & Filter'),
       actions: [

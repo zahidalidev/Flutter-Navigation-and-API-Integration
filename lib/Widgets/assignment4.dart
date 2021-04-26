@@ -1,8 +1,6 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Widgets/Assignment4_AppBar.dart';
 import 'package:flutter_application_1/Widgets/Drawer.dart';
-import 'package:flutter/scheduler.dart' show timeDilation;
 
 class Assignment4 extends StatefulWidget {
   @override
@@ -87,6 +85,7 @@ class _Assignment4 extends State<Assignment4> {
   String to = "";
 
   var toggleButtonList = [false, true, false];
+  var transactionButtons = [false, true];
 
   @override
   Widget build(BuildContext context) {
@@ -159,49 +158,81 @@ class _Assignment4 extends State<Assignment4> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
+
+                    // Toggle Button
                     Container(
-                      margin: const EdgeInsets.only(top: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      alignment: Alignment.centerLeft,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          OutlinedButton(
-                            onPressed: () => null,
-                            style: OutlinedButton.styleFrom(
-                              primary: Colors.black,
-                              side: BorderSide(color: Colors.black, width: 2),
-                              shape: const RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10))),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(20),
-                              child: const Text(
-                                "Money In",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.black,
+                          Container(
+                            margin: const EdgeInsets.only(top: 10),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+
+                              // Buttons
+                              children: [
+                                ToggleButtons(
+                                  borderColor: Colors.black,
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderWidth: 1.5,
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 22,
+                                          bottom: 22,
+                                          left: 35,
+                                          right: 35),
+                                      child: Column(
+                                        children: [
+                                          Text(
+                                            "Money In",
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 19,
+                                                fontWeight: FontWeight.w500),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 22,
+                                          bottom: 22,
+                                          left: 35,
+                                          right: 35),
+                                      child: Column(
+                                        children: [
+                                          Text(
+                                            "Money Out",
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 19,
+                                                fontWeight: FontWeight.w500),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                  onPressed: (int index) {
+                                    setState(() {
+                                      for (int buttonIndex = 0;
+                                          buttonIndex <
+                                              transactionButtons.length;
+                                          buttonIndex++) {
+                                        if (buttonIndex == index) {
+                                          transactionButtons[buttonIndex] =
+                                              true;
+                                        } else {
+                                          transactionButtons[buttonIndex] =
+                                              false;
+                                        }
+                                      }
+                                    });
+                                  },
+                                  isSelected: transactionButtons,
                                 ),
-                              ),
-                            ),
-                          ),
-                          OutlinedButton(
-                            onPressed: () => null,
-                            style: OutlinedButton.styleFrom(
-                              primary: Colors.black,
-                              side: BorderSide(color: Colors.black, width: 2),
-                              shape: const RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10))),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(20),
-                              child: const Text(
-                                "Money Out",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.black,
-                                ),
-                              ),
+                              ],
                             ),
                           ),
                         ],
