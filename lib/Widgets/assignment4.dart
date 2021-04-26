@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Widgets/Assignment4_AppBar.dart';
 import 'package:flutter_application_1/Widgets/Drawer.dart';
 
+// 2018-CS-136 Zahid Ali
+
 class Assignment4 extends StatefulWidget {
   @override
   _Assignment4 createState() => _Assignment4();
@@ -242,7 +244,7 @@ class _Assignment4 extends State<Assignment4> {
                 ),
               ),
 
-              // list of Check boxes
+              // List of Custom checkbox list tile
               Container(
                 margin: const EdgeInsets.only(left: 15, right: 15, top: 20),
                 child: ListView.builder(
@@ -426,7 +428,7 @@ class _Assignment4 extends State<Assignment4> {
                 ),
               ),
 
-              // List of Check Boxes with divider
+              // Custom checkbox list tile with divider
               Container(
                 margin: const EdgeInsets.only(left: 15, right: 15, top: 20),
                 child: ListView.builder(
