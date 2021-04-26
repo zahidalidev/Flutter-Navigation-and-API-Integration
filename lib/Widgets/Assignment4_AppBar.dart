@@ -18,10 +18,12 @@ class Assignment4AppBar extends StatelessWidget implements PreferredSizeWidget {
 
     return AppBar(
       automaticallyImplyLeading: false, //hide drawer icon
-      leading: new Container(
-        child: Icon(
+      leading: IconButton(
+        icon: Icon(
           Icons.close,
+          color: Colors.white,
         ),
+        onPressed: () => null,
       ),
       title: Text('Sort & Filter'),
       actions: [
