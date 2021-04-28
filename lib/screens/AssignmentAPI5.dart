@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Widgets/Card.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -62,70 +63,10 @@ class _Assignment5 extends State<Assignment5> {
                     onDismissed: (direction) {
                       dellItem(body.data[index], index);
                     },
-                    child: Card(
-                      clipBehavior: Clip.antiAlias,
-                      margin: EdgeInsets.only(
-                          left: 30, right: 30, top: 10, bottom: 10),
-                      elevation: 3,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Padding(
-                            padding: EdgeInsets.only(bottom: 10),
-                            child: Image.asset("lib/assets/smash3.jpg"),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 10, left: 16, right: 16),
-                            child: Text(
-                              body.data[index].description,
-                              style: TextStyle(
-                                  color: Colors.black.withOpacity(0.6),
-                                  fontSize: 15),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 16, right: 10, bottom: 10),
-                            child: ButtonBar(
-                              alignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  body.data[index].title,
-                                  style: TextStyle(
-                                    color: Colors.teal,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(right: 13),
-                                      child: GestureDetector(
-                                        child: Icon(
-                                          Icons.favorite,
-                                          color: Colors.grey,
-                                          size: 25,
-                                        ),
-                                        onTap: () => null,
-                                      ),
-                                    ),
-                                    GestureDetector(
-                                      child: Icon(
-                                        Icons.share,
-                                        color: Colors.grey,
-                                        size: 25,
-                                      ),
-                                      onTap: () => null,
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
+                    child: MyCard(
+                      title: body.data[index].title,
+                      description: body.data[index].description,
+                      image: "lib/assets/smash3.jpg",
                     ),
                   );
                 },
