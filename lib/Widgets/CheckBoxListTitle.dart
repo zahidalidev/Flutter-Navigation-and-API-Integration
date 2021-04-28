@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CheckBoxListTitle extends StatelessWidget {
-  String label;
-  bool value;
-  Function change;
+  final String label;
+  final bool value;
+  final Function change;
 
   CheckBoxListTitle({this.label, this.value, this.change});
   @override
