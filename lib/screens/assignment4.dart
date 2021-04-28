@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Widgets/Assignment4_AppBar.dart';
 import 'package:flutter_application_1/Widgets/Drawer.dart';
+import 'package:flutter_application_1/Widgets/Heading.dart';
 
 // 2018-CS-136 Zahid Ali
 
@@ -104,14 +105,7 @@ class _Assignment4 extends State<Assignment4> {
             children: [
               Container(
                 alignment: Alignment.centerLeft,
-                child: Text(
-                  "Sort by",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 22,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
+                child: Heading(label: "Sort by"),
               ),
 
               // Drop Down
@@ -152,14 +146,7 @@ class _Assignment4 extends State<Assignment4> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Transaction types",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 22,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
+                    Heading(label: "Transaction types"),
 
                     // Toggle Button
                     Container(
@@ -293,14 +280,7 @@ class _Assignment4 extends State<Assignment4> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Transaction Health",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 22,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
+                    Heading(label: "Transaction Health"),
                     Container(
                       margin: const EdgeInsets.only(top: 10),
                       child: Row(
