@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Widgets/Assignment4_AppBar.dart';
+import 'package:flutter_application_1/Widgets/CheckBoxListTitle.dart';
 import 'package:flutter_application_1/Widgets/Drawer.dart';
 import 'package:flutter_application_1/Widgets/Heading.dart';
 
@@ -235,32 +236,18 @@ class _Assignment4 extends State<Assignment4> {
               Container(
                 margin: const EdgeInsets.only(left: 15, right: 15, top: 20),
                 child: ListView.builder(
+                  primary: false,
                   itemCount: checkBoxes.length,
                   shrinkWrap: true,
                   itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      child: Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: Text(
-                              checkBoxes[index]['label'],
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 22,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                          Checkbox(
-                            value: checkBoxes[index]['selected'],
-                            onChanged: (bool newValue) {
-                              setState(() {
-                                checkBoxes[index]['selected'] = newValue;
-                              });
-                            },
-                          ),
-                        ],
-                      ),
+                    return CheckBoxListTitle(
+                      label: checkBoxes[index]['label'],
+                      value: checkBoxes[index]['selected'],
+                      change: (value) => {
+                        setState(() {
+                          checkBoxes[index]['selected'] = value;
+                        })
+                      },
                     );
                   },
                 ),
@@ -412,40 +399,19 @@ class _Assignment4 extends State<Assignment4> {
               Container(
                 margin: const EdgeInsets.only(left: 15, right: 15, top: 20),
                 child: ListView.builder(
+                  primary: false,
                   itemCount: checkBoxes2.length,
                   shrinkWrap: true,
                   itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                        child: Column(children: [
-                      const Divider(
-                        height: 10,
-                        thickness: 1,
-                        indent: 0,
-                        endIndent: 0,
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: Text(
-                              checkBoxes2[index]['label'],
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 22,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                          Checkbox(
-                            value: checkBoxes2[index]['selected'],
-                            onChanged: (bool newValue) {
-                              setState(() {
-                                checkBoxes2[index]['selected'] = newValue;
-                              });
-                            },
-                          ),
-                        ],
-                      ),
-                    ]));
+                    return CheckBoxListTitle(
+                      label: checkBoxes2[index]['label'],
+                      value: checkBoxes2[index]['selected'],
+                      change: (value) => {
+                        setState(() {
+                          checkBoxes2[index]['selected'] = value;
+                        })
+                      },
+                    );
                   },
                 ),
               ),
