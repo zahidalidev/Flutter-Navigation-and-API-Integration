@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_application_1/Widgets/Drawer.dart';
 import 'package:flutter_application_1/Widgets/MyAppBar.dart';
-import 'package:flutter_application_1/Widgets/PrimeDetect.dart';
-import 'package:flutter_application_1/Widgets/Assignment3.dart';
-import 'package:flutter_application_1/Widgets/assignment4.dart';
+import 'package:flutter_application_1/screens/PrimeDetect.dart';
+import 'package:flutter_application_1/screens/Assignment3.dart';
+import 'package:flutter_application_1/screens/assignment4.dart';
 
 // Zahid Ali Regestration Number 2018-CS-136
 
