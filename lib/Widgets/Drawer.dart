@@ -15,9 +15,9 @@ var menus = [
     'active': false,
   },
   {
-    'name': 'Direct Materrials',
+    'name': 'Assignment5',
     'icon': Icons.people,
-    'route': '/Assignment3',
+    'route': '/Assignment5',
     'active': false,
   },
   {

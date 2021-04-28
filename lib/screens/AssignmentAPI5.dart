@@ -8,78 +8,32 @@ import 'package:flutter_application_1/Widgets/Drawer.dart';
 
 // Zahid Ali Regestration Number 2018-CS-136
 
-class Assignment3 extends StatefulWidget {
-  Assignment3({Key key}) : super(key: key);
+class Assignment5 extends StatefulWidget {
+  Assignment5({Key key}) : super(key: key);
 
   @override
-  _Assignment3 createState() => _Assignment3();
+  _Assignment5 createState() => _Assignment5();
 }
 
-class _Assignment3 extends State<Assignment3> {
-  List items = [
-    {
-      'id': 1,
-      'title': 'Card 1 Title',
-      'description':
-          "Greyhound divisively hello coldly wonderfully marginally far upon excluding."
-    },
-    {
-      'id': 2,
-      'title': 'Card 2 Title',
-      'description':
-          "Greyhound divisively hello coldly wonderfully marginally far upon excluding."
-    },
-    {
-      'id': 3,
-      'title': 'Card 3 Title',
-      'description':
-          "Greyhound divisively hello coldly wonderfully marginally far upon excluding."
-    },
-    {
-      'id': 4,
-      'title': 'Card 4 Title',
-      'description':
-          "Greyhound divisively hello coldly wonderfully marginally far upon excluding."
-    },
-    {
-      'id': 5,
-      'title': 'Card 5 Title',
-      'description':
-          "Greyhound divisively hello coldly wonderfully marginally far upon excluding."
-    },
-    {
-      'id': 6,
-      'title': 'Card 6 Title',
-      'description':
-          "Greyhound divisively hello coldly wonderfully marginally far upon excluding."
-    },
-    {
-      'id': 7,
-      'title': 'Card 7 Title',
-      'description':
-          "Greyhound divisively hello coldly wonderfully marginally far upon excluding."
-    },
-  ];
-
-  // Future<Post> products;
+class _Assignment5 extends State<Assignment5> {
   Future<List<Product>> products;
 
   @override
   void initState() {
     super.initState();
     products = getProducts();
-    print(products);
   }
 
   void dellItem(item, index) async {
     setState(() {
-      items.remove(item);
+      // products.removeWhere((item) => item.id == '001');
+      // products.remove(item);
     });
 
     final ConfirmAction action = await _asyncConfirmDialog(context);
     if (action != ConfirmAction.Accept) {
       setState(() {
-        items.insert(index, item);
+        // products.insert(index, item);
       });
     }
   }
@@ -177,11 +131,15 @@ class _Assignment3 extends State<Assignment3> {
                 },
               );
             } else if (body.hasError) {
-              return Text("tt:${body.error}");
+              return Center(
+                child: Text("tt:${body.error}"),
+              );
             }
 
             // By default, it show a loading spinner.
-            return CircularProgressIndicator();
+            return Center(
+              child: CircularProgressIndicator(),
+            );
           },
         ),
       ),
@@ -233,6 +191,7 @@ Future<List<Product>> getProducts() async {
 
   if (response.statusCode == 200) {
     // If the server returns an OK response, then parse the JSON.
+    // return json.decode(response.body);
     return parseData(response.body);
   } else {
     // If the response was umexpected, throw an error.
