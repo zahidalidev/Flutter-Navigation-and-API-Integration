@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_application_1/Widgets/Drawer.dart';
 import 'package:flutter_application_1/Widgets/MyAppBar.dart';
-import 'package:flutter_application_1/screens/Assignment3.dart';
-import 'package:flutter_application_1/screens/PrimeDetect.dart';
-import 'package:flutter_application_1/screens/AssignmentAPI5.dart';
-import 'package:flutter_application_1/screens/assignment4.dart';
+import 'package:flutter_application_1/screens/Home.dart';
+import 'package:flutter_application_1/screens/ListRecords.dart';
 
 // Zahid Ali Regestration Number 2018-CS-136
 
@@ -27,9 +25,7 @@ class MyApp extends StatelessWidget {
         // When navigating to the "/" route, build the FirstScreen widget.
         // '/': (context) => PrimeDetectState(),
         // When navigating to the "/second" route, build the SecondScreen widget.
-        '/Assignment3': (context) => Assignment3(),
-        '/Assignment5': (context) => Assignment5(),
-        '/Assignment4': (context) => Assignment4(),
+        '/listRecords': (context) => ListRecords(),
       },
     );
   }

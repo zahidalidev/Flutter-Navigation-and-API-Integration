@@ -9,14 +9,14 @@ import 'package:flutter_application_1/Widgets/Drawer.dart';
 
 // Zahid Ali Regestration Number 2018-CS-136
 
-class Assignment5 extends StatefulWidget {
-  Assignment5({Key key}) : super(key: key);
+class ListRecords extends StatefulWidget {
+  ListRecords({Key key}) : super(key: key);
 
   @override
-  _Assignment5 createState() => _Assignment5();
+  _ListRecords createState() => _ListRecords();
 }
 
-class _Assignment5 extends State<Assignment5> {
+class _ListRecords extends State<ListRecords> {
   Future<List<Product>> products;
 
   @override
@@ -57,17 +57,40 @@ class _Assignment5 extends State<Assignment5> {
               return ListView.builder(
                 itemCount: body.data.length,
                 itemBuilder: (context, index) {
-                  return Dismissible(
-                    background: Container(color: Colors.red[300]),
-                    key: Key(body.data[index].title),
-                    onDismissed: (direction) {
-                      dellItem(body.data[index], index);
-                    },
-                    child: MyCard(
-                      title: body.data[index].title,
-                      description: body.data[index].description,
-                      image: "lib/assets/smash3.jpg",
-                    ),
+                  return Table(
+                    defaultColumnWidth: FixedColumnWidth(120.0),
+                    border: TableBorder.all(
+                        color: Colors.black,
+                        style: BorderStyle.solid,
+                        width: 2),
+                    children: [
+                      TableRow(children: [
+                        Column(children: [
+                          Text('Website', style: TextStyle(fontSize: 20.0))
+                        ]),
+                        Column(children: [
+                          Text('Tutorial', style: TextStyle(fontSize: 20.0))
+                        ]),
+                        Column(children: [
+                          Text('Review', style: TextStyle(fontSize: 20.0))
+                        ]),
+                      ]),
+                      TableRow(children: [
+                        Column(children: [Text('Javatpoint')]),
+                        Column(children: [Text('Flutter')]),
+                        Column(children: [Text('5*')]),
+                      ]),
+                      TableRow(children: [
+                        Column(children: [Text('Javatpoint')]),
+                        Column(children: [Text('MySQL')]),
+                        Column(children: [Text('5*')]),
+                      ]),
+                      TableRow(children: [
+                        Column(children: [Text('Javatpoint')]),
+                        Column(children: [Text('ReactJS')]),
+                        Column(children: [Text('5*')]),
+                      ]),
+                    ],
                   );
                 },
               );
@@ -142,16 +165,28 @@ Future<List<Product>> getProducts() async {
 
 class Product {
   final int id;
-  final String title;
-  final String description;
+  final String firstName;
+  final String lastName;
+  final String gender;
+  final String email;
+  final String phone;
 
-  Product({this.id, this.title, this.description});
+  Product(
+      {this.id,
+      this.firstName,
+      this.lastName,
+      this.gender,
+      this.email,
+      this.phone});
 
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
       id: json['id'],
-      title: json['title'],
-      description: json['description'],
+      firstName: json['firstName'],
+      lastName: json['lastName'],
+      gender: json['gender'],
+      email: json['email'],
+      phone: json['phone'],
     );
   }
 }
