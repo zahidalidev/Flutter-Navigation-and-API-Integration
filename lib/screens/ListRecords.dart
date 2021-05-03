@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:lazy_data_table/lazy_data_table.dart';
 
 import 'package:flutter_application_1/Widgets/MyAppBar.dart';
 import 'package:flutter_application_1/Widgets/Drawer.dart';
