@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Widgets/Card.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:lazy_data_table/lazy_data_table.dart';
 
 import 'package:flutter_application_1/Widgets/MyAppBar.dart';
 import 'package:flutter_application_1/Widgets/Drawer.dart';
-
 // Zahid Ali Regestration Number 2018-CS-136
 
 class ListRecords extends StatefulWidget {
@@ -54,45 +53,32 @@ class _ListRecords extends State<ListRecords> {
           future: products,
           builder: (context, body) {
             if (body.hasData) {
-              return ListView.builder(
-                itemCount: body.data.length,
-                itemBuilder: (context, index) {
-                  return Table(
-                    defaultColumnWidth: FixedColumnWidth(120.0),
-                    border: TableBorder.all(
-                        color: Colors.black,
-                        style: BorderStyle.solid,
-                        width: 2),
-                    children: [
-                      TableRow(children: [
-                        Column(children: [
-                          Text('Website', style: TextStyle(fontSize: 20.0))
-                        ]),
-                        Column(children: [
-                          Text('Tutorial', style: TextStyle(fontSize: 20.0))
-                        ]),
-                        Column(children: [
-                          Text('Review', style: TextStyle(fontSize: 20.0))
-                        ]),
-                      ]),
-                      TableRow(children: [
-                        Column(children: [Text('Javatpoint')]),
-                        Column(children: [Text('Flutter')]),
-                        Column(children: [Text('5*')]),
-                      ]),
-                      TableRow(children: [
-                        Column(children: [Text('Javatpoint')]),
-                        Column(children: [Text('MySQL')]),
-                        Column(children: [Text('5*')]),
-                      ]),
-                      TableRow(children: [
-                        Column(children: [Text('Javatpoint')]),
-                        Column(children: [Text('ReactJS')]),
-                        Column(children: [Text('5*')]),
-                      ]),
-                    ],
-                  );
-                },
+              return DataTable(
+                columnSpacing: 10,
+                dataRowHeight: 60,
+                columns: [
+                  DataColumn(label: Text("id")),
+                  DataColumn(label: Text("firstname")),
+                  DataColumn(label: Text("lastname")),
+                  DataColumn(label: Text("gender")),
+                  DataColumn(label: Text("email")),
+                  DataColumn(label: Text("phone")),
+                ],
+                rows: body.data
+                    .map(
+                      ((item) => DataRow(
+                            cells: <DataCell>[
+                              DataCell(Text(item.id)),
+                              DataCell(Text(item.firstName)),
+                              DataCell(Text(item.lastName)),
+                              DataCell(Text(item.gender)),
+                              DataCell(Container(
+                                  width: 90, child: Text(item.email))),
+                              DataCell(Text(item.phone)),
+                            ],
+                          )),
+                    )
+                    .toList(),
               );
             } else if (body.hasError) {
               return Center(
@@ -150,8 +136,8 @@ List<Product> parseData(String responseBody) {
 }
 
 Future<List<Product>> getProducts() async {
-  final response = await http.get(
-      "https://my-json-server.typicode.com/zahidalidev/fakeProduct/products");
+  final response =
+      await http.get("https://pcc.edu.pk/ws/list/ts_providers.php");
 
   if (response.statusCode == 200) {
     // If the server returns an OK response, then parse the JSON.
@@ -164,7 +150,7 @@ Future<List<Product>> getProducts() async {
 }
 
 class Product {
-  final int id;
+  final String id;
   final String firstName;
   final String lastName;
   final String gender;
