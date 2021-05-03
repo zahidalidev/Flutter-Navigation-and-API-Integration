@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Hello World Flutter Application',
       theme: ThemeData(
         // This is the theme of your application.
-        primarySwatch: Colors.teal,
+        primarySwatch: Colors.cyan,
       ),
       home: MyHomePage(title: 'Home page'),
       // initialRoute: '/',
@@ -41,6 +41,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
         appBar: MyAppBar(),
         drawer: Container(
+          color: Colors.white,
           width: MediaQuery.of(context).size.width * 0.65,
           child: DrawerWidget(),
         ),
