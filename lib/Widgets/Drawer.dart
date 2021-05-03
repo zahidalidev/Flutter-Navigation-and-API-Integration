@@ -131,7 +131,7 @@ class _DrawerWidget extends State<DrawerWidget> {
               ],
             ),
             decoration: BoxDecoration(
-              color: Colors.teal,
+              color: Colors.cyan,
             ),
           ),
           Expanded(

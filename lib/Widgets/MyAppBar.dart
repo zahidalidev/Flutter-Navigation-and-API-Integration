@@ -9,7 +9,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       foregroundColor: Colors.white,
       iconTheme: IconThemeData(color: Colors.white),
-      title: Text('Verido', style: TextStyle(color: Colors.white)),
+      title: Text('Code X', style: TextStyle(color: Colors.white)),
       actions: [
         IconButton(
             icon: const Icon(
