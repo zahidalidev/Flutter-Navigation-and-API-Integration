@@ -47,49 +47,65 @@ class _ListRecords extends State<ListRecords> {
       ),
       // imported from PrimeDetect
       body: Container(
-        margin: EdgeInsets.only(top: 20),
-        child: FutureBuilder<List<Product>>(
-          future: products,
-          builder: (context, body) {
-            if (body.hasData) {
-              return DataTable(
-                columnSpacing: 10,
-                dataRowHeight: 60,
-                columns: [
-                  DataColumn(label: Text("id")),
-                  DataColumn(label: Text("firstname")),
-                  DataColumn(label: Text("lastname")),
-                  DataColumn(label: Text("gender")),
-                  DataColumn(label: Text("email")),
-                  DataColumn(label: Text("phone")),
-                ],
-                rows: body.data
-                    .map(
-                      ((item) => DataRow(
-                            cells: <DataCell>[
-                              DataCell(Text(item.id)),
-                              DataCell(Text(item.firstName)),
-                              DataCell(Text(item.lastName)),
-                              DataCell(Text(item.gender)),
-                              DataCell(Container(
-                                  width: 90, child: Text(item.email))),
-                              DataCell(Text(item.phone)),
-                            ],
-                          )),
-                    )
-                    .toList(),
-              );
-            } else if (body.hasError) {
-              return Center(
-                child: Text("tt:${body.error}"),
-              );
-            }
+        margin: EdgeInsets.only(top: 20, bottom: 20),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                margin: const EdgeInsets.all(10),
+                child: Text(
+                  "TS Providers",
+                  style: TextStyle(
+                      color: Colors.cyan,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              FutureBuilder<List<Product>>(
+                future: products,
+                builder: (context, body) {
+                  if (body.hasData) {
+                    return DataTable(
+                      columnSpacing: 10,
+                      dataRowHeight: 60,
+                      columns: [
+                        DataColumn(label: Text("id")),
+                        DataColumn(label: Text("firstname")),
+                        DataColumn(label: Text("lastname")),
+                        DataColumn(label: Text("gender")),
+                        DataColumn(label: Text("email")),
+                        DataColumn(label: Text("phone")),
+                      ],
+                      rows: body.data
+                          .map(
+                            ((item) => DataRow(
+                                  cells: <DataCell>[
+                                    DataCell(Text(item.id)),
+                                    DataCell(Text(item.firstName)),
+                                    DataCell(Text(item.lastName)),
+                                    DataCell(Text(item.gender)),
+                                    DataCell(Container(
+                                        width: 90, child: Text(item.email))),
+                                    DataCell(Text(item.phone)),
+                                  ],
+                                )),
+                          )
+                          .toList(),
+                    );
+                  } else if (body.hasError) {
+                    return Center(
+                      child: Text("tt:${body.error}"),
+                    );
+                  }
 
-            // By default, it show a loading spinner.
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          },
+                  // By default, it show a loading spinner.
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
