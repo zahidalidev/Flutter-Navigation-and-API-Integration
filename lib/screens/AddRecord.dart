@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Widgets/AlertBox.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -28,8 +29,9 @@ class _AddRecord extends State<AddRecord> {
     String email = emailController.text;
     String phone = phoneController.text;
 
-    message = addRecord(firstName, lastName, gender, email, phone);
-    print('message');
+    setState(() {
+      message = addRecord(firstName, lastName, gender, email, phone);
+    });
   }
 
   @override
@@ -47,50 +49,48 @@ class _AddRecord extends State<AddRecord> {
                 child: Column(
                   children: [
                     TextField(
-                      //keyboardType: TextInputType.firstname,
+                      keyboardType: TextInputType.name,
                       decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Enter first Name'),
+                          border: OutlineInputBorder(), hintText: 'First Name'),
                       controller: firstnameController,
                     ),
                     Divider(
                       height: 2.0,
                     ),
                     TextField(
-                      //keyboardType: TextInputType.firstname,
+                      keyboardType: TextInputType.name,
                       decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Enter Last Name'),
+                          border: OutlineInputBorder(), hintText: 'Last Name'),
                       controller: lastnameController,
                     ),
                     Divider(
                       height: 2.0,
                     ),
                     TextField(
-                      //keyboardType: TextInputType.firstname,
+                      keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
-                          hintText: 'Enter gender here'),
+                          hintText: 'gender here'),
                       controller: genderController,
                     ),
                     Divider(
                       height: 2.0,
                     ),
                     TextField(
-                      //keyboardType: TextInputType.firstname,
+                      keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
-                          hintText: 'Enter email here'),
+                          hintText: 'Email Address'),
                       controller: emailController,
                     ),
                     Divider(
                       height: 2.0,
                     ),
                     TextField(
-                      //keyboardType: TextInputType.firstname,
+                      keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
-                          hintText: 'Enter phone here'),
+                          hintText: 'Phone Number'),
                       controller: phoneController,
                     ),
                     Divider(
@@ -101,7 +101,8 @@ class _AddRecord extends State<AddRecord> {
                         postRecord();
                       },
                       child: Text(
-                        'Send Data',
+                        'Add Record',
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ],
@@ -111,14 +112,12 @@ class _AddRecord extends State<AddRecord> {
                 future: message,
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    // return Text(snapshot.data.message);
-                    return showAlertDialog(context);
+                    return AlertBox(message: snapshot.data.message);
                   } else if (snapshot.hasError) {
-                    return Text("${snapshot.error}");
-                    // return Text("${snapshot.error}");
+                    return AlertBox(message: "${snapshot.error}");
                   }
 
-                  return CircularProgressIndicator();
+                  return Center(child: CircularProgressIndicator());
                 },
               ),
       ),
@@ -146,7 +145,7 @@ Future<Convert> addRecord(String firstName, String lastName, String gender,
   if (response.statusCode == 200) {
     return Convert.fromJson(jsonDecode(response.body));
   } else {
-    throw Exception('Failed to Add Record.');
+    return Convert.fromJson(jsonDecode("{'message': 'Failed to Add Record.'}"));
   }
 }
 
@@ -160,29 +159,4 @@ class Convert {
       message: json['message'],
     );
   }
-}
-
-showAlertDialog(BuildContext context) {
-  // Create button
-  Widget okButton = FlatButton(
-    child: Text("OK"),
-    onPressed: () {},
-  );
-
-  // Create AlertDialog
-  AlertDialog alert = AlertDialog(
-    title: Text("Simple Alert"),
-    content: Text("This is an alert message."),
-    actions: [
-      okButton,
-    ],
-  );
-
-  // show the dialog
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return alert;
-    },
-  );
 }
