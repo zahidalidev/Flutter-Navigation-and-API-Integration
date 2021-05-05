@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_application_1/Widgets/Drawer.dart';
 import 'package:flutter_application_1/Widgets/MyAppBar.dart';
+import 'package:flutter_application_1/screens/AddRecord.dart';
 import 'package:flutter_application_1/screens/Home.dart';
 import 'package:flutter_application_1/screens/ListRecords.dart';
 
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         // '/': (context) => PrimeDetectState(),
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/listRecords': (context) => ListRecords(),
+        '/addRecords': (context) => AddRecord(),
       },
     );
   }

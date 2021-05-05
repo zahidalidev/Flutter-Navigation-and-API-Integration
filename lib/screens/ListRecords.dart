@@ -124,11 +124,6 @@ Future<ConfirmAction> _asyncConfirmDialog(BuildContext context) async {
   );
 }
 
-// Future<http.Response> getProducts() {
-//   return http.get(
-//       "https://my-json-server.typicode.com/zahidalidev/fakeProduct/products");
-// }
-
 List<Product> parseData(String responseBody) {
   final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
   return parsed.map<Product>((json) => Product.fromJson(json)).toList();
