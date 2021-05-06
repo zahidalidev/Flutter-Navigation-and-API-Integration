@@ -44,7 +44,7 @@ class _ListRecords extends State<ListRecords> {
                 margin: const EdgeInsets.only(
                     left: 10, right: 10, top: 10, bottom: 25),
                 child: Heading(
-                  label: "Add TS Provider",
+                  label: "TS Provider",
                 ),
               ),
               FutureBuilder<List<Product>>(
