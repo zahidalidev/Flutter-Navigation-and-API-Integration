@@ -2,53 +2,12 @@ import 'package:flutter/material.dart';
 
 // Zahid Ali Regestration Number 2018-CS-136
 
-class PrimeDetectState extends StatefulWidget {
-  @override
-  PrimeDetect createState() => PrimeDetect();
-}
-
-class PrimeDetect extends State<PrimeDetectState> {
-  int number;
-  String isPrime = "Not detected";
-
-  //Funtion to check prime number
-  void detectPrime() {
-    if (number == null) {
-      setState(() {
-        isPrime = "Not detected";
-      });
-      return;
-    } else {
-      if (number <= 1) {
-        setState(() {
-          isPrime = "Composite";
-          number = null;
-        });
-        return;
-      }
-      for (int i = 2; i < number; i++) {
-        if (number % i == 0) {
-          setState(() {
-            isPrime = "Composite";
-            number = null;
-          });
-
-          return;
-        }
-      }
-      setState(() {
-        isPrime = "Prime";
-        number = null;
-      });
-      return;
-    }
-  }
-
+class PrimeDetectState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        padding: EdgeInsets.only(left: 30, right: 30, top: 80),
+        padding: EdgeInsets.only(top: 80),
         alignment: Alignment.center,
         // color: Colors.white,
         child: Row(
@@ -57,16 +16,17 @@ class PrimeDetect extends State<PrimeDetectState> {
               child: Container(
                 child: Column(
                   children: [
-                    Image.asset("lib/assets/numbers.png",
-                        height: 190, width: 250),
+                    Image.asset("lib/assets/CodeXLogo.png", height: 170),
                     Container(
-                      margin: const EdgeInsets.only(top: 15.0),
+                      margin:
+                          const EdgeInsets.only(top: 20, left: 30, right: 30),
+                      alignment: Alignment.centerLeft,
                       child: Text(
-                        'description here',
+                        "1. Design Home Screen, add logo, short description of your assignment requirements; add drawer for navigation options to screens, designed in next steps \n 2. Design Add Record Screen & Integrate Web API to add records; Add at least 5 records \n3. Design List Records. Integrate Web API to fetch records and then display them in tabular form, in this screen",
                         textAlign: TextAlign.start,
                         style: TextStyle(
-                          fontSize: 35,
-                          color: Colors.teal,
+                          fontSize: 16,
+                          color: Colors.cyan,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
@@ -81,3 +41,5 @@ class PrimeDetect extends State<PrimeDetectState> {
     );
   }
 }
+
+// Zahid Ali Regestration Number 2018-CS-136

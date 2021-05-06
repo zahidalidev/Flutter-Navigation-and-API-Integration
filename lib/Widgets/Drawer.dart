@@ -3,21 +3,21 @@ import 'package:flutter/material.dart';
 // Zahid Ali Regestration Number 2018-CS-136
 var menus = [
   {
-    'name': 'Add Record',
+    'name': 'Home',
     'icon': Icons.email_rounded,
+    'route': '/',
+    'active': false,
+  },
+  {
+    'name': 'Add Records',
+    'icon': Icons.photo_rounded,
     'route': '/addRecords',
     'active': false,
   },
   {
     'name': 'List Records',
-    'icon': Icons.photo_rounded,
-    'route': '/listRecords',
-    'active': false,
-  },
-  {
-    'name': 'Customers',
     'icon': Icons.people,
-    'route': '/Assignment5',
+    'route': '/listRecords',
     'active': false,
   },
   {
