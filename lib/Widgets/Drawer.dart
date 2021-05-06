@@ -94,44 +94,29 @@ class _DrawerWidget extends State<DrawerWidget> {
               children: [
                 Container(
                   margin: EdgeInsets.only(top: 4),
-                  width: 70,
-                  height: 70,
+                  width: 120,
+                  height: 110,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                      image: AssetImage('lib/assets/person.jpg'),
+                      image: AssetImage('lib/assets/CodeXLogo.png'),
                       fit: BoxFit.fill,
                     ),
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 11),
+                  margin: EdgeInsets.only(top: 5, left: 5),
                   child: Text(
-                    'Hamza Farooq',
+                    'codex@gmail.com',
                     textAlign: TextAlign.start,
                     style: TextStyle(
                       fontSize: 18,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 5),
-                  child: Text(
-                    'hamza@gmail.com',
-                    textAlign: TextAlign.start,
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
+                      color: Colors.cyan,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
                 )
               ],
-            ),
-            decoration: BoxDecoration(
-              color: Colors.cyan,
             ),
           ),
           Expanded(
@@ -177,7 +162,7 @@ class _DrawerWidget extends State<DrawerWidget> {
           ),
           const Divider(
             height: 10,
-            thickness: 2,
+            thickness: 0.5,
             // indent: 20,
             // endIndent: 20,
           ),
