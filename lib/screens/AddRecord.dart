@@ -151,7 +151,7 @@ class _AddRecord extends State<AddRecord> {
 
 Future<Convert> addRecord(String firstName, String lastName, String gender,
     String email, String phone) async {
-  var url = Uri.parse('https://pcc.edu.pk/ws/create/ts_providers.php');
+  var url = Uri.parse('http://bilalganjmarket.com/apis/persons.php');
   final response = await http.post(
     url,
     headers: <String, String>{
