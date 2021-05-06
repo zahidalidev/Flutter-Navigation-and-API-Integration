@@ -1,21 +1,11 @@
-# Varido Flutter App
+# Flutter-Navigation-and-API-Integration
 
 ## Screenshots
 
-------
+---
 
+---
 
+---
 
-------
-
-
-
-
-------
-
-
-
-
-------
-
-
+---
