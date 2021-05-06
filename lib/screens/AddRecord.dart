@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Widgets/AlertBox.dart';
+import 'package:flutter_application_1/Widgets/Heading.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -44,69 +45,85 @@ class _AddRecord extends State<AddRecord> {
         child: DrawerWidget(),
       ),
       body: Container(
+        margin: EdgeInsets.only(top: 20),
         padding: EdgeInsets.all(20.0),
         child: (message == null)
             ? SingleChildScrollView(
-                child: Column(
-                  children: [
-                    TextField(
-                      keyboardType: TextInputType.name,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(), hintText: 'First Name'),
-                      controller: firstnameController,
-                    ),
-                    Divider(
-                      height: 2.0,
-                    ),
-                    TextField(
-                      keyboardType: TextInputType.name,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(), hintText: 'Last Name'),
-                      controller: lastnameController,
-                    ),
-                    Divider(
-                      height: 2.0,
-                    ),
-                    TextField(
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'gender here'),
-                      controller: genderController,
-                    ),
-                    Divider(
-                      height: 2.0,
-                    ),
-                    TextField(
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Email Address'),
-                      controller: emailController,
-                    ),
-                    Divider(
-                      height: 2.0,
-                    ),
-                    TextField(
-                      keyboardType: TextInputType.phone,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Phone Number'),
-                      controller: phoneController,
-                    ),
-                    Divider(
-                      height: 2.0,
-                    ),
-                    ElevatedButton(
-                      onPressed: () async {
-                        postRecord();
-                      },
-                      child: Text(
-                        'Add Record',
-                        style: TextStyle(color: Colors.white),
+                child: Container(
+                  margin: EdgeInsets.all(20),
+                  child: Column(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.all(25),
+                        child: Heading(
+                          label: "Add TS Provider",
+                        ),
                       ),
-                    ),
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: TextField(
+                          // autofocus: true,
+                          keyboardType: TextInputType.name,
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              hintText: 'First Name'),
+                          controller: firstnameController,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: TextField(
+                          keyboardType: TextInputType.name,
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              hintText: 'Last Name'),
+                          controller: lastnameController,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: TextField(
+                          keyboardType: TextInputType.text,
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              hintText: 'gender here'),
+                          controller: genderController,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: TextField(
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              hintText: 'Email Address'),
+                          controller: emailController,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: TextField(
+                          keyboardType: TextInputType.phone,
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              hintText: 'Phone Number'),
+                          controller: phoneController,
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(top: 20),
+                        child: ElevatedButton(
+                          onPressed: () async {
+                            postRecord();
+                          },
+                          child: Text(
+                            'Add Record',
+                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               )
             : FutureBuilder<Convert>(

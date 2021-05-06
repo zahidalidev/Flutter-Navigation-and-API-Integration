@@ -9,8 +9,8 @@ class Heading extends StatelessWidget {
     return Text(
       label,
       style: TextStyle(
-        color: Colors.black,
-        fontSize: 22,
+        color: Colors.cyan,
+        fontSize: 28,
         fontWeight: FontWeight.w500,
       ),
     );
