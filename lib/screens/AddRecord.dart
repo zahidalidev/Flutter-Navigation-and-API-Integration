@@ -169,7 +169,7 @@ Future<Convert> addRecord(String firstName, String lastName, String gender,
   if (response.statusCode == 200) {
     return Convert.fromJson(jsonDecode(response.body));
   } else {
-    return Convert.fromJson(jsonDecode("{'message': 'Failed to Add Record.'}"));
+    throw Exception('Failed to load product');
   }
 }
 
