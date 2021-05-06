@@ -54,12 +54,12 @@ class _ListRecords extends State<ListRecords> {
                       columnSpacing: 10,
                       dataRowHeight: 60,
                       columns: [
-                        DataColumn(label: Text("id")),
-                        DataColumn(label: Text("firstname")),
-                        DataColumn(label: Text("lastname")),
-                        DataColumn(label: Text("gender")),
-                        DataColumn(label: Text("email")),
-                        DataColumn(label: Text("phone")),
+                        DataColumn(label: Text("Id")),
+                        DataColumn(label: Text("Firstname")),
+                        DataColumn(label: Text("Lastname")),
+                        DataColumn(label: Text("Gender")),
+                        DataColumn(label: Text("Email")),
+                        DataColumn(label: Text("Phone")),
                       ],
                       rows: body.data
                           .map(
