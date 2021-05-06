@@ -16,20 +16,20 @@ class AddRecord extends StatefulWidget {
 }
 
 class _AddRecord extends State<AddRecord> {
-  TextEditingController firstnameController = TextEditingController();
-  TextEditingController lastnameController = TextEditingController();
-  TextEditingController genderController = TextEditingController();
+  TextEditingController firstNameCont = TextEditingController();
+  TextEditingController lastNameCont = TextEditingController();
+  TextEditingController genderCont = TextEditingController();
   TextEditingController emailController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
+  TextEditingController phoneNumController = TextEditingController();
 
   Future<Convert> message;
 
   postRecord() {
-    String firstName = firstnameController.text;
-    String lastName = lastnameController.text;
-    String gender = genderController.text;
+    String firstName = firstNameCont.text;
+    String lastName = lastNameCont.text;
+    String gender = genderCont.text;
     String email = emailController.text;
-    String phone = phoneController.text;
+    String phone = phoneNumController.text;
 
     setState(() {
       message = addRecord(firstName, lastName, gender, email, phone);
@@ -67,7 +67,7 @@ class _AddRecord extends State<AddRecord> {
                           decoration: InputDecoration(
                               border: OutlineInputBorder(),
                               hintText: 'First Name'),
-                          controller: firstnameController,
+                          controller: firstNameCont,
                         ),
                       ),
                       Padding(
@@ -77,7 +77,7 @@ class _AddRecord extends State<AddRecord> {
                           decoration: InputDecoration(
                               border: OutlineInputBorder(),
                               hintText: 'Last Name'),
-                          controller: lastnameController,
+                          controller: lastNameCont,
                         ),
                       ),
                       Padding(
@@ -87,7 +87,7 @@ class _AddRecord extends State<AddRecord> {
                           decoration: InputDecoration(
                               border: OutlineInputBorder(),
                               hintText: 'gender here'),
-                          controller: genderController,
+                          controller: genderCont,
                         ),
                       ),
                       Padding(
@@ -107,7 +107,7 @@ class _AddRecord extends State<AddRecord> {
                           decoration: InputDecoration(
                               border: OutlineInputBorder(),
                               hintText: 'Phone Number'),
-                          controller: phoneController,
+                          controller: phoneNumController,
                         ),
                       ),
                       Container(
