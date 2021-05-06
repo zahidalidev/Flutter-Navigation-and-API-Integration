@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 
 import 'package:flutter_application_1/Widgets/MyAppBar.dart';
 import 'package:flutter_application_1/Widgets/Drawer.dart';
+import 'package:flutter_application_1/Widgets/Heading.dart';
 
 // Zahid Ali Regestration Number 2018-CS-136
 
@@ -24,20 +25,6 @@ class _ListRecords extends State<ListRecords> {
     products = getProducts();
   }
 
-  void dellItem(item, index) async {
-    setState(() {
-      // products.removeWhere((item) => item.id == '001');
-      // products.remove(item);
-    });
-
-    final ConfirmAction action = await _asyncConfirmDialog(context);
-    if (action != ConfirmAction.Accept) {
-      setState(() {
-        // products.insert(index, item);
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,13 +40,10 @@ class _ListRecords extends State<ListRecords> {
           child: Column(
             children: [
               Container(
-                margin: const EdgeInsets.all(10),
-                child: Text(
-                  "TS Providers",
-                  style: TextStyle(
-                      color: Colors.cyan,
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold),
+                margin: const EdgeInsets.only(
+                    left: 10, right: 10, top: 10, bottom: 25),
+                child: Heading(
+                  label: "Add TS Provider",
                 ),
               ),
               FutureBuilder<List<Product>>(
@@ -113,34 +97,6 @@ class _ListRecords extends State<ListRecords> {
   }
 }
 
-enum ConfirmAction { Cancel, Accept }
-Future<ConfirmAction> _asyncConfirmDialog(BuildContext context) async {
-  return showDialog<ConfirmAction>(
-    context: context,
-    barrierDismissible: false, // user must tap button for close dialog!
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: Text('Delete This Card?'),
-        content: const Text('This will delete the Card from Todays list.'),
-        actions: <Widget>[
-          TextButton(
-            child: const Text('Cancel'),
-            onPressed: () {
-              Navigator.of(context).pop(ConfirmAction.Cancel);
-            },
-          ),
-          TextButton(
-            child: const Text('Delete'),
-            onPressed: () {
-              Navigator.of(context).pop(ConfirmAction.Accept);
-            },
-          )
-        ],
-      );
-    },
-  );
-}
-
 List<Product> parseData(String responseBody) {
   final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
   return parsed.map<Product>((json) => Product.fromJson(json)).toList();
@@ -168,13 +124,14 @@ class Product {
   final String email;
   final String phone;
 
-  Product(
-      {this.id,
-      this.firstName,
-      this.lastName,
-      this.gender,
-      this.email,
-      this.phone});
+  Product({
+    this.id,
+    this.firstName,
+    this.lastName,
+    this.gender,
+    this.email,
+    this.phone,
+  });
 
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
