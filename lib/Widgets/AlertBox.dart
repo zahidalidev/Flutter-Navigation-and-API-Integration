@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 class AlertBox extends StatelessWidget {
   // final String title;
   final String message;
-  AlertBox({this.message});
+  final String path;
+  AlertBox({this.message, this.path});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class AlertBox extends StatelessWidget {
         TextButton(
           child: const Text('OK'),
           onPressed: () {
-            Navigator.of(context).pushNamed('/addRecords');
+            Navigator.of(context).pushNamed(path);
           },
         )
       ],

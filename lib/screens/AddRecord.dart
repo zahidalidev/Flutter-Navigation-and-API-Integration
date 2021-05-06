@@ -130,9 +130,15 @@ class _AddRecord extends State<AddRecord> {
                 future: message,
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    return AlertBox(message: snapshot.data.message);
+                    return AlertBox(
+                      message: snapshot.data.message,
+                      path: '/addRecords',
+                    );
                   } else if (snapshot.hasError) {
-                    return AlertBox(message: "${snapshot.error}");
+                    return AlertBox(
+                      message: "${snapshot.error}",
+                      path: '/addRecords',
+                    );
                   }
 
                   return Center(child: CircularProgressIndicator());

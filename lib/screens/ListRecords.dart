@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Widgets/AlertBox.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -79,7 +80,7 @@ class _ListRecords extends State<ListRecords> {
                     );
                   } else if (body.hasError) {
                     return Center(
-                      child: Text("tt:${body.error}"),
+                      child: AlertBox(message: "tt:${body.error}", path: "/"),
                     );
                   }
 
@@ -104,7 +105,7 @@ List<Product> parseData(String responseBody) {
 
 Future<List<Product>> getProducts() async {
   final response =
-      await http.get("https://pcc.edu.pk/ws/list/ts_providers.php");
+      await http.get("http://bilalganjmarket.com/apis/persons_list.php");
 
   if (response.statusCode == 200) {
     // If the server returns an OK response, then parse the JSON.
